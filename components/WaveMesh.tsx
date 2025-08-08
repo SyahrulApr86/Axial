@@ -21,14 +21,15 @@ export default function WaveMesh({ className }: WaveMeshProps) {
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
-    // Camera setup
+    // Camera setup - looking straight ahead like from shore
     const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
-    camera.position.set(0, 0, 5);
+    camera.position.set(0, 0, 0); // Eye level, slightly above water
+    camera.lookAt(0, 0, -10); // Looking straight ahead to horizon
 
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({ 
@@ -40,17 +41,19 @@ export default function WaveMesh({ className }: WaveMeshProps) {
     mountRef.current.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    // Create wireframe mesh geometry
-    const geometry = new THREE.PlaneGeometry(8, 6, 50, 40);
+    // Create wireframe mesh geometry - like ocean surface
+    const geometry = new THREE.PlaneGeometry(150, 50, 100, 80);
     const material = new THREE.MeshBasicMaterial({
       color: 0x000000,
       wireframe: true,
       transparent: true,
-      opacity: 0.15
+      opacity: 0.1
     });
 
     const mesh = new THREE.Mesh(geometry, material);
-    mesh.rotation.x = -Math.PI / 3;
+    mesh.rotation.x = -Math.PI / 2; // Flat horizontal like water
+    mesh.position.y = -1; // Much much lower, only visible at bottom edge
+    mesh.position.z = -20; // Further away like distant horizon
     scene.add(mesh);
     meshRef.current = mesh;
 
