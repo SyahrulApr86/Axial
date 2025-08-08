@@ -75,10 +75,16 @@ function ProjectCard({ project }: ProjectCardProps) {
         <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
           {project.description}
         </p>
-        <p className="mt-4 text-xs font-medium text-black dark:text-white">
-          <span className="text-neutral-500 dark:text-neutral-400">Technologies: </span>
-          {project.technologies.join(", ")}
-        </p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {project.technologies.map((tech) => (
+            <span
+              key={tech}
+              className="px-2 py-1 text-xs rounded-full bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
       </CardContent>
     </Card>
   );

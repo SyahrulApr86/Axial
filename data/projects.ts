@@ -27,63 +27,15 @@ export const projects: Project[] = [
     }
   },
   {
-    id: "object-detection",
-    title: "Real-time Object Detection API",
-    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
-    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
+    id: "portfolio-website",
+    title: "Modern Portfolio Website",
+    description: "Built a full-stack portfolio website with admin dashboard, contact management, and responsive design using modern web technologies.",
+    technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Prisma", "PostgreSQL", "Docker"],
     image: "/projects/tempfile.png",
-    fallbackIcon: "👁️",
+    fallbackIcon: "💼",
     fallbackGradient: {
-      from: "from-green-100 dark:from-green-900",
-      to: "to-teal-100 dark:to-teal-900"
-    }
-  },
-    {
-    id: "object-detection",
-    title: "Real-time Object Detection API",
-    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
-    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
-    image: "/projects/tempfile.png",
-    fallbackIcon: "👁️",
-    fallbackGradient: {
-      from: "from-green-100 dark:from-green-900",
-      to: "to-teal-100 dark:to-teal-900"
-    }
-  },
-    {
-    id: "object-detection",
-    title: "Real-time Object Detection API",
-    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
-    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
-    image: "/projects/tempfile.png",
-    fallbackIcon: "👁️",
-    fallbackGradient: {
-      from: "from-green-100 dark:from-green-900",
-      to: "to-teal-100 dark:to-teal-900"
-    }
-  },
-    {
-    id: "object-detection",
-    title: "Real-time Object Detection API",
-    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
-    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
-    image: "/projects/tempfile.png",
-    fallbackIcon: "👁️",
-    fallbackGradient: {
-      from: "from-green-100 dark:from-green-900",
-      to: "to-teal-100 dark:to-teal-900"
-    }
-  },
-    {
-    id: "object-detection",
-    title: "Real-time Object Detection API",
-    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
-    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
-    image: "/projects/tempfile.png",
-    fallbackIcon: "👁️",
-    fallbackGradient: {
-      from: "from-green-100 dark:from-green-900",
-      to: "to-teal-100 dark:to-teal-900"
+      from: "from-purple-100 dark:from-purple-900",
+      to: "to-pink-100 dark:to-pink-900"
     }
   },
   {
