@@ -1,9 +1,10 @@
-# Stage 1: Builder
+# Stage 1: Build
 FROM node:18-bullseye AS builder
 
+# Set working directory
 WORKDIR /app
 
-# Install native build dependencies
+# Install system dependencies for native modules
 RUN apt-get update && apt-get install -y \
   build-essential \
   python3 \
@@ -17,36 +18,32 @@ RUN apt-get update && apt-get install -y \
   librsvg2-dev \
   && rm -rf /var/lib/apt/lists/*
 
-# Set environment for LightningCSS to download correct native binary
-ENV LIGHTNINGCSS_BINARY_HOST_MIRROR=https://unpkg.com/lightningcss-linux-x64-gnu@latest/
-
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
+# Install dependencies using NPM with lockfile
 RUN npm ci --frozen-lockfile
 
-# Force rebuild native modules (especially lightningcss)
-RUN npm rebuild lightningcss \
-  && node -e "require('lightningcss')"
-
-# Copy Prisma schema and generate client
+# Copy prisma schema and generate Prisma client
 COPY prisma ./prisma
 RUN npx prisma generate
 
-# Copy all remaining source code
+# Copy application source
 COPY . .
 
-# Build the Next.js application
+# Set production environment for build
 ENV NODE_ENV=production
+
+# Run Next.js production build
 RUN npm run build
 
-# Stage 2: Runner
+# Stage 2: Production Runner
 FROM node:18-bullseye AS runner
 
+# Set working directory
 WORKDIR /app
 
-# Install runtime utilities
+# Install minimal utilities
 RUN apt-get update && apt-get install -y \
   curl \
   netcat-openbsd \
@@ -56,7 +53,7 @@ RUN apt-get update && apt-get install -y \
 RUN groupadd --gid 1001 nodejs && \
   useradd --uid 1001 --gid nodejs --shell /bin/bash --create-home nextjs
 
-# Copy necessary files from builder
+# Copy runtime files from builder
 COPY --from=builder /app/next.config.mjs ./
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/package.json ./
@@ -67,19 +64,16 @@ COPY --from=builder /app/scripts ./scripts
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Copy Prisma client and node_modules subset
+# Copy required node_modules for Prisma client
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
-# Setup logs
+# Set permissions for logs and ownership
 RUN mkdir -p /app/logs && chown -R nextjs:nodejs /app/logs
-
-# Copy and prepare entrypoint script
 COPY scripts/docker-entrypoint.sh ./docker-entrypoint.sh
 RUN chmod +x ./docker-entrypoint.sh
-
-# Change ownership of app directory
 RUN chown -R nextjs:nodejs /app
+
 USER nextjs
 
 # Set environment
@@ -91,6 +85,8 @@ ENV PORT=3000
 HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
   CMD curl -f http://localhost:3000/api/health || exit 1
 
-# Entrypoint and default command
+# Entrypoint script
 ENTRYPOINT ["./docker-entrypoint.sh"]
+
+# Start server
 CMD ["node", "server.js"]
