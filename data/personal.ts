@@ -18,8 +18,8 @@ export const personalInfo: PersonalInfo = {
   description: "I build robust software and intelligent systems. Passionate about leveraging AI to solve real-world problems.",
   profileImage: "/profile-photo.png",
   socialLinks: {
-    linkedin: "#",
-    github: "#",
-    email: "#"
+    linkedin: "https://www.linkedin.com/in/syahrul-apriansyah-257bab207/",
+    github: "https://github.com/SyahrulApr86",
+    email: "apriansyah.syahrul@gmail.com"
   }
 };
