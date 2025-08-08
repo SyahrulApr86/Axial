@@ -3,12 +3,46 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ThemeToggle } from "@/components/theme-toggle"
+import WaveMesh from "@/components/WaveMesh"
 import { Github, Linkedin, Download, Send } from 'lucide-react'
 import Image from 'next/image'
 
 export default function PortfolioPage() {
 return (
-  <div className="flex min-h-screen w-full flex-col bg-white dark:bg-black">
+  <>
+    {/* SVG filter for noise effect */}
+    <svg className="absolute inset-0 w-0 h-0">
+      <defs>
+        <filter id="noise-filter">
+          <feTurbulence 
+            type="fractalNoise" 
+            baseFrequency="0.75" 
+            numOctaves="4" 
+            result="noise"
+          />
+          <feDisplacementMap 
+            in="SourceGraphic" 
+            in2="noise" 
+            scale="10"
+          />
+        </filter>
+      </defs>
+    </svg>
+    
+    <div className="flex min-h-screen w-full flex-col bg-white dark:bg-black">
+      {/* Grainy Background Blobs */}
+      <div className="grainy-bg">
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+        <div className="blob blob-3"></div>
+        <div className="blob blob-4"></div>
+        <div className="blob blob-5"></div>
+        <div className="grain-texture"></div>
+      </div>
+      
+      {/* 3D Wave Mesh */}
+      <WaveMesh />
+      
     <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between px-4 md:px-6 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
       <a className="flex items-center gap-2" href="#">
         <span className="text-lg font-semibold text-black dark:text-white">Syahrul Apriansyah</span>
@@ -225,5 +259,6 @@ return (
       <p>© 2025 Syahrul Apriansyah. All rights reserved.</p>
     </footer>
   </div>
+  </>
 )
 }
