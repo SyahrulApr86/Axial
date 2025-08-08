@@ -43,8 +43,22 @@ return (
       {/* 3D Wave Mesh */}
       <WaveMesh />
       
-    <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between px-4 md:px-6 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
-      <a className="flex items-center gap-2" href="#">
+    <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between px-4 md:px-6 bg-white/80 backdrop-blur-sm dark:bg-black/80">
+      <a className="flex items-center gap-3" href="#">
+        <div className="w-8 h-8 md:w-10 md:h-10 relative">
+          <Image
+            src="/logo-black.png"
+            alt="SA Logo"
+            fill
+            className="object-contain block dark:hidden"
+          />
+          <Image
+            src="/logo-white.png"
+            alt="SA Logo"
+            fill
+            className="object-contain hidden dark:block"
+          />
+        </div>
         <span className="text-lg font-semibold text-black dark:text-white">Syahrul Apriansyah</span>
       </a>
       <ThemeToggle />
@@ -91,7 +105,7 @@ return (
     </div>
   </section>
 
-      <section id="projects" className="w-full py-12 md:py-24 bg-neutral-50 dark:bg-neutral-900">
+      <section id="projects" className="w-full py-12 md:py-24 bg-neutral-200	backdrop-blur-sm dark:bg-neutral-900">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white">Projects</h2>
           <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -170,7 +184,7 @@ return (
         </div>
       </section>
 
-      <section id="expertise" className="w-full py-12 md:py-24 bg-neutral-50 dark:bg-neutral-900">
+      <section id="expertise" className="w-full py-12 md:py-24 bg-neutral-200	backdrop-blur-sm dark:bg-neutral-900">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white">Technical Expertise</h2>
           <div className="mt-12 grid gap-8 sm:grid-cols-2">
@@ -255,7 +269,7 @@ return (
         </div>
       </section>
     </main>
-    <footer className="flex items-center justify-center py-6 w-full shrink-0 text-center text-sm text-neutral-500 dark:text-neutral-400 bg-neutral-50 dark:bg-neutral-900">
+    <footer className="flex items-center justify-center py-6 w-full shrink-0 text-center text-sm text-neutral-500 dark:text-neutral-400 bg-neutral-200 dark:bg-neutral-900">
       <p>© 2025 Syahrul Apriansyah. All rights reserved.</p>
     </footer>
   </div>
