@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Syahrul Apriansyah | AI Engineer & Backend Developer",
-  description: "Personal portfolio of Syahrul Apriansyah, an AI Engineer and Backend Developer.",
+  title: "Syahrul Apriansyah | AI Engineer & Software Engineer",
+  description: "Personal portfolio of Syahrul Apriansyah, an AI Engineer and Software Engineer.",
     generator: 'v0.dev'
 };
 

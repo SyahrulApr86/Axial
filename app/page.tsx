@@ -28,7 +28,7 @@ return (
               Syahrul Apriansyah
             </h1>
             <p className="text-2xl text-neutral-800 dark:text-neutral-200">
-              AI Engineer & Backend Developer
+              AI Engineer & Software Engineer
             </p>
           </div>
           <p className="max-w-[600px] text-neutral-600 dark:text-neutral-400 md:text-xl mx-auto lg:mx-0">
@@ -122,7 +122,7 @@ return (
               </div>
               <div className="mb-10 ml-6">
                 <span className="absolute -left-[9px] flex h-4 w-4 items-center justify-center rounded-full bg-black dark:bg-white ring-8 ring-white dark:ring-black" />
-                <h3 className="text-xl font-semibold text-black dark:text-white">Backend Developer</h3>
+                <h3 className="text-xl font-semibold text-black dark:text-white">Software Engineer</h3>
                 <p className="text-md text-neutral-600 dark:text-neutral-300">Tech Solutions Inc.</p>
                 <time className="block mb-2 text-sm font-normal leading-none text-neutral-500 dark:text-neutral-400">
                   Jun 2019 - Dec 2021
