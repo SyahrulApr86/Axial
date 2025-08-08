@@ -38,6 +38,54 @@ export const projects: Project[] = [
       to: "to-teal-100 dark:to-teal-900"
     }
   },
+    {
+    id: "object-detection",
+    title: "Real-time Object Detection API",
+    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
+    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
+    image: "/projects/tempfile.png",
+    fallbackIcon: "👁️",
+    fallbackGradient: {
+      from: "from-green-100 dark:from-green-900",
+      to: "to-teal-100 dark:to-teal-900"
+    }
+  },
+    {
+    id: "object-detection",
+    title: "Real-time Object Detection API",
+    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
+    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
+    image: "/projects/tempfile.png",
+    fallbackIcon: "👁️",
+    fallbackGradient: {
+      from: "from-green-100 dark:from-green-900",
+      to: "to-teal-100 dark:to-teal-900"
+    }
+  },
+    {
+    id: "object-detection",
+    title: "Real-time Object Detection API",
+    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
+    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
+    image: "/projects/tempfile.png",
+    fallbackIcon: "👁️",
+    fallbackGradient: {
+      from: "from-green-100 dark:from-green-900",
+      to: "to-teal-100 dark:to-teal-900"
+    }
+  },
+    {
+    id: "object-detection",
+    title: "Real-time Object Detection API",
+    description: "Built a high-performance API for real-time object detection in video streams using YOLOv8.",
+    technologies: ["Python", "YOLO", "TensorFlow", "NestJS", "Kubernetes"],
+    image: "/projects/tempfile.png",
+    fallbackIcon: "👁️",
+    fallbackGradient: {
+      from: "from-green-100 dark:from-green-900",
+      to: "to-teal-100 dark:to-teal-900"
+    }
+  },
   {
     id: "microservices",
     title: "Scalable Microservices Platform",

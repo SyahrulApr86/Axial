@@ -10,7 +10,7 @@ function ProjectCard({ project }: ProjectCardProps) {
   const hasImage = project.image && project.image.length > 0;
 
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-neutral-900">
+    <Card className="flex-shrink-0 w-80 overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-neutral-900">
       <div className="relative w-full h-48 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
         {hasImage ? (
           <>
@@ -91,9 +91,17 @@ export default function ProjectsSection() {
         <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white">
           Projects
         </h2>
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      </div>
+      
+      {/* Full Width Horizontal Scrolling Container */}
+      <div className="mt-12 w-full overflow-x-auto scrollbar-hide">
+        <div className="flex gap-6 pl-4 md:pl-6 pb-4 animate-scroll">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
+          ))}
+          {/* Duplicate for seamless loop */}
+          {projects.map((project) => (
+            <ProjectCard key={`${project.id}-duplicate`} project={project} />
           ))}
         </div>
       </div>

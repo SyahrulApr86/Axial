@@ -18,12 +18,29 @@ export default function ExperienceSection() {
                 <p className="text-md text-neutral-600 dark:text-neutral-300">
                   {experience.company}
                 </p>
-                <time className="block mb-2 text-sm font-normal leading-none text-neutral-500 dark:text-neutral-400">
+                <time className="block text-sm font-normal leading-none text-neutral-500 dark:text-neutral-400">
                   {experience.period}
                 </time>
-                <p className="text-base font-normal text-neutral-600 dark:text-neutral-300">
+                {experience.location && (
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">
+                    {experience.location}
+                  </p>
+                )}
+                <p className="text-base font-normal text-neutral-600 dark:text-neutral-300 mb-3">
                   {experience.description}
                 </p>
+                {experience.skills && experience.skills.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {experience.skills.map((skill, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 text-xs rounded-md bg-neutral-200 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>

@@ -63,6 +63,26 @@ return (
         </div>
         <span className="text-lg font-semibold text-black dark:text-white">{personalInfo.name}</span>
       </a>
+      
+      {/* Navigation Menu */}
+      <nav className="hidden md:flex items-center gap-6">
+        <a href="#about" className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
+          About
+        </a>
+        <a href="#projects" className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
+          Projects
+        </a>
+        <a href="#experience" className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
+          Experience
+        </a>
+        <a href="#expertise" className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
+          Skills
+        </a>
+        <a href="#contact" className="text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-black dark:hover:text-white transition-colors">
+          Contact
+        </a>
+      </nav>
+      
       <ThemeToggle />
     </header>
     <main className="flex-1 pt-16">

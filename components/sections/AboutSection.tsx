@@ -3,7 +3,7 @@ import { aboutInfo } from "@/data/about";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="w-full py-12 md:py-24 bg-neutral-100/50 dark:bg-neutral-800/50 backdrop-blur-sm">
+    <section id="about" className="w-full py-12 md:py-24 bg-neutral-100/50 dark:bg-neutral-800/50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="max-w-4xl mx-auto">
           <Card className="p-8 md:p-12 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm border border-neutral-200 dark:border-neutral-700">
