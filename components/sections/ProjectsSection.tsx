@@ -1,23 +1,24 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { projects, type Project } from "@/data/projects";
 import Image from "next/image";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface ProjectCardProps {
   project: Project;
 }
 
 function ProjectCard({ project }: ProjectCardProps) {
-  const hasImage = project.image && project.image.length > 0;
-
   return (
     <Card className="flex-shrink-0 w-80 overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-black">
       <div className="relative w-full h-48 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-        {hasImage ? (
+        {project.image && (
           <>
-            {/* Real Project Image with seamless fade mask */}
+            {/* Project Image with seamless fade mask */}
             <div className="absolute inset-0 m-0 p-0">
               <Image
-                src={project.image!}
+                src={project.image}
                 alt={project.title}
                 fill
                 className="object-cover object-top grayscale m-0 p-0"
@@ -54,17 +55,7 @@ function ProjectCard({ project }: ProjectCardProps) {
               }}
             />
           </>
-        ) : (
-          <>
-            {/* Fallback Gradient Background */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${project.fallbackGradient?.from} ${project.fallbackGradient?.to}`} />
-            {/* Fallback Icon */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-6xl opacity-20">{project.fallbackIcon}</div>
-            </div>
-          </>
         )}
-        
       </div>
       
       <CardHeader className="relative z-10 bg-white dark:bg-black pt-4">
@@ -75,6 +66,33 @@ function ProjectCard({ project }: ProjectCardProps) {
         <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
           {project.description}
         </p>
+        
+        {/* Project Links */}
+        <div className="mt-4 flex gap-3">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors"
+            >
+              <Github size={16} />
+              <span>Code</span>
+            </a>
+          )}
+          {project.link && (
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-300 hover:text-black dark:hover:text-white transition-colors"
+            >
+              <ExternalLink size={16} />
+              <span>Live Demo</span>
+            </a>
+          )}
+        </div>
+        
         <div className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((tech) => (
             <span
@@ -110,6 +128,16 @@ export default function ProjectsSection() {
             <ProjectCard key={`${project.id}-duplicate`} project={project} />
           ))}
         </div>
+      </div>
+      
+      {/* See More Button */}
+      <div className="flex justify-center mt-12">
+        <Link href="/projects">
+          <Button className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
+            See All Projects
+            <ArrowRight className="ml-2" size={16} />
+          </Button>
+        </Link>
       </div>
     </section>
   );

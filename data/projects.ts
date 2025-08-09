@@ -4,13 +4,8 @@ export interface Project {
   description: string;
   technologies: string[];
   image?: string; // Path to project image
-  fallbackIcon?: string; // Fallback icon if no image
-  fallbackGradient?: {
-    from: string;
-    to: string;
-  };
-  link?: string;
-  github?: string;
+  link?: string; // Live project URL
+  github?: string; // GitHub repository URL
 }
 
 export const projects: Project[] = [
@@ -23,11 +18,8 @@ export const projects: Project[] = [
       "Supabase", "Docker"
     ],
     image: "/projects/trackify.png",
-    fallbackIcon: "📝",
-    fallbackGradient: {
-      from: "from-yellow-100 dark:from-yellow-900",
-      to: "to-orange-100 dark:to-orange-900"
-    }
+    link: "https://trackify.rul.blue/",
+    github: "https://github.com/SyahrulApr86/Trackify"
   },
   {
     id: "portfolio-website",
@@ -35,11 +27,8 @@ export const projects: Project[] = [
     description: "Built a portfolio website with admin dashboard, contact management, and responsive design using modern web technologies.",
     technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Three.js"],
     image: "/projects/axial.png",
-    fallbackIcon: "💼",
-    fallbackGradient: {
-      from: "from-purple-100 dark:from-purple-900",
-      to: "to-pink-100 dark:to-pink-900"
-    }
+    link: "https://rul.blue/",
+    github: "https://github.com/SyahrulApr86/Axial"
   },
   {
     id: "tempfile",
@@ -47,11 +36,8 @@ export const projects: Project[] = [
     description: "A web app designed to make managing temporary files effortless. Store, organise, and share your temporary files securely.",
     technologies: ["Golang", "Nuxt.js", "AWS", "Terraform"],
     image: "/projects/tempfile.png",
-    fallbackIcon: "⚡",
-    fallbackGradient: {
-      from: "from-orange-100 dark:from-orange-900",
-      to: "to-red-100 dark:to-red-900"
-    }
+    link: "https://tempfile.rul.blue/",
+    github: "https://github.com/orgs/TempFileLink/repositories"
   },
   {
     id: "marvel-dc-search",
@@ -59,11 +45,8 @@ export const projects: Project[] = [
     description: "Semantic web application that provides intelligent search capabilities for Marvel and DC films.",
     technologies: ["Django", "Python", "GraphDB", "SPARQL", "RDF/Turtle", "Redis", "Docker", "Bootstrap", "JavaScript"],
     image: "/projects/marvel-dc.png",
-    fallbackIcon: "🎬",
-    fallbackGradient: {
-      from: "from-green-100 dark:from-green-900",
-      to: "to-teal-100 dark:to-teal-900"
-    }
+    link: "https://marveldc.rul.blue/",
+    github: "https://github.com/SyahrulApr86/Marvel-vs-DC-Search-Engine"
   },
   {
     id: "smart-retail-analytics",
@@ -71,11 +54,7 @@ export const projects: Project[] = [
     description: "A machine learning-based retail analytics platform for rule mining in customer purchasing patterns. Implements the CRISP-DM methodology with advanced algorithms to deliver actionable business insights.",
     technologies: ["Streamlit", "Python", "Scikit-learn", "Pandas", "Plotly"],
     image: "/projects/smart-retail.png",
-    fallbackIcon: "📊",
-    fallbackGradient: {
-      from: "from-indigo-100 dark:from-indigo-900",
-      to: "to-blue-100 dark:to-blue-900"
-    }
+    link: "https://datamining.rul.blue/"
   },
   {
     id: "camsight",
@@ -83,10 +62,50 @@ export const projects: Project[] = [
     description: "A web application that provides real-time object detection and tracking using computer vision techniques.",
     technologies: ["FastAPI", "YOLO", "Next.js", "Websocket"],
     image: "/projects/camsight.png",
-    fallbackIcon: "👁️",
-    fallbackGradient: {
-      from: "from-indigo-100 dark:from-indigo-900",
-      to: "to-blue-100 dark:to-blue-900"
-    }
+    github: "https://github.com/SyahrulApr86/CamSight",
+  },
+  {
+    id: "asisten",
+    title: "Asisten",
+    description: "A Web Wrapper for SiAsisten CS UI with better UI/UX and additional features.",
+    technologies: ["React", "Vite", "TypeScript", "Tailwind CSS"],
+    image: "/projects/asisten.png",
+    link: "https://asisten.rul.blue/",
+    github: "https://github.com/SyahrulApr86/AsistenManager"
+  },
+  {
+    id: "chronica",
+    title: "Chronica",
+    description: "A modern, elegant calendar application built with Next.js and NestJS that revolutionizes how you manage your time and schedule events.",
+    technologies: ["Next.js", "NestJS", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+    image: "/projects/chronica.png",
+    link: "https://chronica.rul.blue/",
+    github: "https://github.com/SyahrulApr86/Chronica"
+  },
+  {
+    id: "markify",
+    title: "Markify",
+    description: "Markify is a web application that allows you to easily convert text into markdown and preview it in real-time.",
+    technologies: ["Vite", "React", "TypeScript", "Tailwind CSS"],
+    image: "/projects/markify.png",
+    link: "https://markify.rul.blue/",
+    github: "https://github.com/SyahrulApr86/Markify"
+  },
+  {
+    id: "point-of-sale",
+    title: "POS System PT Galerry Merah Putih",
+    description: "An integrated POS system for PT Galerry Merah Putih, enabling seamless management of furniture sales both online and offline, with comprehensive record-keeping and unified reporting.",
+    technologies: ["Django", "Python", "PostgreSQL", "Bootstrap", "JavaScript"],
+    image: "/projects/pos.png",
+    link: "https://pos.rul.blue/"
+  },
+  {
+    id: "wiiks",
+    title: "Wiiks",
+    description: "Wiiks is a web-based application that allows users to efficiently organize their weekly schedules.",
+    technologies: ["React", "Vite", "TypeScript", "Tailwind CSS"],
+    image: "/projects/wiiks.png",
+    link: "https://wiiks.rul.blue/",
+    github: "https://github.com/SyahrulApr86/Wiiks"
   }
 ];
