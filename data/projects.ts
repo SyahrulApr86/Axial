@@ -76,5 +76,17 @@ export const projects: Project[] = [
       from: "from-indigo-100 dark:from-indigo-900",
       to: "to-blue-100 dark:to-blue-900"
     }
+  },
+  {
+    id: "camsight",
+    title: "CamSight",
+    description: "A web application that provides real-time object detection and tracking using computer vision techniques.",
+    technologies: ["FastAPI", "YOLO", "Next.js", "Websocket"],
+    image: "/projects/camsight.png",
+    fallbackIcon: "👁️",
+    fallbackGradient: {
+      from: "from-indigo-100 dark:from-indigo-900",
+      to: "to-blue-100 dark:to-blue-900"
+    }
   }
 ];
