@@ -1,5 +1,5 @@
 import { ThemeToggle } from "@/components/theme-toggle"
-import WaveMesh from "@/components/WaveMesh"
+import ClientWaveMesh from "@/components/ClientWaveMesh"
 import HeroSection from "@/components/sections/HeroSection"
 import AboutSection from "@/components/sections/AboutSection"
 import ProjectsSection from "@/components/sections/ProjectsSection"
@@ -43,7 +43,7 @@ return (
       </div>
       
       {/* 3D Wave Mesh */}
-      <WaveMesh />
+      <ClientWaveMesh />
       
     <header className="fixed top-0 left-0 right-0 z-50 flex h-16 items-center justify-between px-4 md:px-6 bg-white/80 backdrop-blur-sm dark:bg-black/80">
       <a className="flex items-center gap-3" href="#">

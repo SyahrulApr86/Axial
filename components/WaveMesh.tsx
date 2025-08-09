@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 interface WaveMeshProps {
@@ -13,9 +13,14 @@ export default function WaveMesh({ className }: WaveMeshProps) {
   const rendererRef = useRef<THREE.WebGLRenderer>();
   const meshRef = useRef<THREE.Mesh>();
   const animationIdRef = useRef<number>();
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (!mountRef.current) return;
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient || !mountRef.current || typeof window === 'undefined') return;
 
     // Scene setup
     const scene = new THREE.Scene();
@@ -140,7 +145,7 @@ export default function WaveMesh({ className }: WaveMeshProps) {
       geometry.dispose();
       material.dispose();
     };
-  }, []);
+  }, [isClient]);
 
   return (
     <div 
