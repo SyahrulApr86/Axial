@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
+import { cn } from '@/lib/utils';
 
 interface WaveMeshProps {
   className?: string;
@@ -150,7 +151,7 @@ export default function WaveMesh({ className }: WaveMeshProps) {
   return (
     <div 
       ref={mountRef} 
-      className={`fixed inset-0 -z-10 pointer-events-none ${className}`}
+      className={cn("fixed inset-0 -z-10 pointer-events-none", className)}
       style={{ zIndex: 0 }}
     />
   );

@@ -32,8 +32,6 @@ COPY . .
 
 # Build app with standalone output
 ENV NODE_ENV=production
-# Copy PostCSS config for Docker build
-COPY postcss.config.docker.mjs postcss.config.mjs
 RUN npm run build
 
 # Stage 2: Runner

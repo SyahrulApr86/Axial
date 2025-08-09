@@ -10,6 +10,8 @@ export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
       {...props} 
       storageKey="portfolio-theme"
       enableColorScheme={false}
+      disableTransitionOnChange={false}
+      forcedTheme={undefined}
     >
       {children}
     </NextThemesProvider>

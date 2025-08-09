@@ -129,7 +129,7 @@ export default function ContactSection() {
               placeholder="Name" 
               value={formData.name}
               onChange={handleInputChange}
-              className="bg-white dark:bg-black" 
+              className="bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-600 text-gray-500 dark:text-white" 
               disabled={status.type === 'loading'}
             />
             <Input 
@@ -138,7 +138,7 @@ export default function ContactSection() {
               placeholder="Email" 
               value={formData.email}
               onChange={handleInputChange}
-              className="bg-white dark:bg-black" 
+              className="bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-600 text-gray-500 dark:text-white" 
               disabled={status.type === 'loading'}
             />
             <Textarea 
@@ -146,13 +146,13 @@ export default function ContactSection() {
               placeholder="Message" 
               value={formData.message}
               onChange={handleInputChange}
-              className="bg-white dark:bg-black min-h-[120px]" 
+              className="bg-white dark:bg-neutral-900 border-neutral-300 dark:border-neutral-600 text-gray-500 dark:text-white min-h-[120px]" 
               disabled={status.type === 'loading'}
             />
             <Button 
               type="submit" 
               disabled={status.type === 'loading'}
-              className="disabled:opacity-50"
+              className="bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 disabled:opacity-50"
             >
               {status.type === 'loading' ? (
                 <>

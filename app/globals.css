@@ -1,7 +1,6 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
-
-@custom-variant dark (&:is(.dark *));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: oklch(1 0 0);
@@ -46,8 +45,8 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -125,96 +124,117 @@
   }
 }
 
-/* Simple visible gradient blobs */
-.grainy-bg {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  overflow: hidden;
-}
+@layer utilities {
+  /* Simple visible gradient blobs */
+  .grainy-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+  }
 
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  animation: float 15s ease-in-out infinite;
-}
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: float 15s ease-in-out infinite;
+  }
 
-.blob-1 {
-  width: 300px;
-  height: 300px;
-  background: rgba(0, 0, 0, 0.3);
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
-}
+  .blob-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.3);
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+  }
 
-.blob-2 {
-  width: 400px;
-  height: 400px;
-  background: rgba(0, 0, 0, 0.25);
-  top: 60%;
-  right: 20%;
-  animation-delay: -5s;
-}
+  .blob-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.25);
+    top: 60%;
+    right: 20%;
+    animation-delay: -5s;
+  }
 
-.blob-3 {
-  width: 350px;
-  height: 350px;
-  background: rgba(0, 0, 0, 0.2);
-  bottom: 10%;
-  left: 30%;
-  animation-delay: -10s;
-}
+  .blob-3 {
+    width: 350px;
+    height: 350px;
+    background: rgba(0, 0, 0, 0.2);
+    bottom: 10%;
+    left: 30%;
+    animation-delay: -10s;
+  }
 
-.blob-4 {
-  width: 250px;
-  height: 250px;
-  background: rgba(0, 0, 0, 0.35);
-  top: 10%;
-  right: 10%;
-  animation-delay: -3s;
-}
+  .blob-4 {
+    width: 250px;
+    height: 250px;
+    background: rgba(0, 0, 0, 0.35);
+    top: 10%;
+    right: 10%;
+    animation-delay: -3s;
+  }
 
-.blob-5 {
-  width: 320px;
-  height: 320px;
-  background: rgba(0, 0, 0, 0.28);
-  bottom: 40%;
-  right: 40%;
-  animation-delay: -8s;
-}
+  .blob-5 {
+    width: 320px;
+    height: 320px;
+    background: rgba(0, 0, 0, 0.28);
+    bottom: 40%;
+    right: 40%;
+    animation-delay: -8s;
+  }
 
-/* Dark theme */
-.dark .blob-1 { background: rgba(255, 255, 255, 0.15); }
-.dark .blob-2 { background: rgba(255, 255, 255, 0.12); }
-.dark .blob-3 { background: rgba(255, 255, 255, 0.1); }
-.dark .blob-4 { background: rgba(255, 255, 255, 0.18); }
-.dark .blob-5 { background: rgba(255, 255, 255, 0.14); }
+  /* Dark theme */
+  .dark .blob-1 { background: rgba(255, 255, 255, 0.15); }
+  .dark .blob-2 { background: rgba(255, 255, 255, 0.12); }
+  .dark .blob-3 { background: rgba(255, 255, 255, 0.1); }
+  .dark .blob-4 { background: rgba(255, 255, 255, 0.18); }
+  .dark .blob-5 { background: rgba(255, 255, 255, 0.14); }
 
-/* Grain texture overlay */
-.grain-texture {
-  position: absolute;
-  inset: 0;
-  opacity: 0.08;
-  background-image: 
-    radial-gradient(circle at 20% 20%, #000 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, #000 1px, transparent 1px),
-    radial-gradient(circle at 40% 60%, #000 0.5px, transparent 0.5px),
-    radial-gradient(circle at 60% 40%, #000 0.5px, transparent 0.5px);
-  background-size: 50px 50px, 60px 60px, 30px 30px, 40px 40px;
-  background-position: 0 0, 30px 30px, 10px 10px, 20px 20px;
-  animation: grain-move 8s linear infinite;
-}
+  /* Grain texture overlay */
+  .grain-texture {
+    position: absolute;
+    inset: 0;
+    opacity: 0.08;
+    background-image: 
+      radial-gradient(circle at 20% 20%, #000 1px, transparent 1px),
+      radial-gradient(circle at 80% 80%, #000 1px, transparent 1px),
+      radial-gradient(circle at 40% 60%, #000 0.5px, transparent 0.5px),
+      radial-gradient(circle at 60% 40%, #000 0.5px, transparent 0.5px);
+    background-size: 50px 50px, 60px 60px, 30px 30px, 40px 40px;
+    background-position: 0 0, 30px 30px, 10px 10px, 20px 20px;
+    animation: grain-move 8s linear infinite;
+  }
 
-.dark .grain-texture {
-  opacity: 0.06;
-  background-image: 
-    radial-gradient(circle at 20% 20%, #fff 1px, transparent 1px),
-    radial-gradient(circle at 80% 80%, #fff 1px, transparent 1px),
-    radial-gradient(circle at 40% 60%, #fff 0.5px, transparent 0.5px),
-    radial-gradient(circle at 60% 40%, #fff 0.5px, transparent 0.5px);
+  .dark .grain-texture {
+    opacity: 0.06;
+    background-image: 
+      radial-gradient(circle at 20% 20%, #fff 1px, transparent 1px),
+      radial-gradient(circle at 80% 80%, #fff 1px, transparent 1px),
+      radial-gradient(circle at 40% 60%, #fff 0.5px, transparent 0.5px),
+      radial-gradient(circle at 60% 40%, #fff 0.5px, transparent 0.5px);
+  }
+
+  /* Horizontal Auto-Scroll Animation */
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* Hide Scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @keyframes float {
@@ -247,23 +267,5 @@
   100% {
     transform: translateX(-50%);
   }
-}
-
-.animate-scroll {
-  animation: scroll 30s linear infinite;
-}
-
-.animate-scroll:hover {
-  animation-play-state: paused;
-}
-
-/* Hide Scrollbar */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
 }
 

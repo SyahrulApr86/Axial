@@ -10,7 +10,7 @@ function ProjectCard({ project }: ProjectCardProps) {
   const hasImage = project.image && project.image.length > 0;
 
   return (
-    <Card className="flex-shrink-0 w-80 overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-neutral-900">
+    <Card className="flex-shrink-0 w-80 overflow-hidden hover:shadow-lg transition-shadow duration-300 bg-white dark:bg-black">
       <div className="relative w-full h-48 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
         {hasImage ? (
           <>
@@ -46,10 +46,10 @@ function ProjectCard({ project }: ProjectCardProps) {
                 background: `linear-gradient(to bottom, 
                   transparent 0%, 
                   transparent 40%, 
-                  rgba(23, 23, 23, 0.1) 60%, 
-                  rgba(23, 23, 23, 0.7) 80%, 
-                  rgba(23, 23, 23, 0.95) 95%, 
-                  rgb(23, 23, 23) 100%
+                  rgba(0, 0, 0, 0.1) 60%, 
+                  rgba(0, 0, 0, 0.7) 80%, 
+                  rgba(0, 0, 0, 0.95) 95%, 
+                  rgb(0, 0, 0) 100%
                 )`
               }}
             />
@@ -67,11 +67,11 @@ function ProjectCard({ project }: ProjectCardProps) {
         
       </div>
       
-      <CardHeader className="relative z-10 bg-white dark:bg-neutral-900 pt-4">
-        <CardTitle className="text-lg">{project.title}</CardTitle>
+      <CardHeader className="relative z-10 bg-white dark:bg-black pt-4">
+        <CardTitle className="text-lg text-black dark:text-white">{project.title}</CardTitle>
       </CardHeader>
       
-      <CardContent className="relative z-10 bg-white dark:bg-neutral-900">
+      <CardContent className="relative z-10 bg-white dark:bg-black">
         <p className="text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed">
           {project.description}
         </p>
@@ -92,7 +92,7 @@ function ProjectCard({ project }: ProjectCardProps) {
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="w-full py-12 md:py-24 bg-neutral-200 backdrop-blur-sm dark:bg-neutral-900">
+    <section id="projects" className="w-full py-12 md:py-24 bg-neutral-200/70 backdrop-blur-sm dark:bg-neutral-900/70">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl font-bold tracking-tighter text-center text-black dark:text-white">
           Projects

@@ -24,7 +24,7 @@ export default function HeroSection() {
               {personalInfo.description}
             </p>
             <div className="w-full max-w-sm space-y-2 mx-auto lg:mx-0">
-              <Button size="lg" className="w-full sm:w-auto">
+              <Button size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
               </Button>
