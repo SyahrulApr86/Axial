@@ -4,6 +4,34 @@ import { projects, type Project } from "@/data/projects";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink, ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects | Syahrul Apriansyah - AI Engineer & Software Engineer",
+  description: "Explore my portfolio of AI engineering and software development projects including machine learning applications, web development, and cloud infrastructure solutions.",
+  keywords: "projects, portfolio, AI projects, machine learning, web development, software engineering, computer vision, data science",
+  alternates: {
+    canonical: 'https://www.syahrulapriansyah.com/projects',
+  },
+  openGraph: {
+    title: "Projects | Syahrul Apriansyah",
+    description: "Explore my portfolio of AI engineering and software development projects including machine learning applications, web development, and cloud infrastructure solutions.",
+    url: "https://www.syahrulapriansyah.com/projects",
+    images: [
+      {
+        url: "/logo-black.png",
+        width: 1200,
+        height: 630,
+        alt: "Syahrul Apriansyah Projects Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    title: "Projects | Syahrul Apriansyah",
+    description: "Explore my portfolio of AI engineering and software development projects including machine learning applications, web development, and cloud infrastructure solutions.",
+    images: ["/logo-black.png"],
+  },
+};
 
 interface ProjectGridCardProps {
   project: Project;

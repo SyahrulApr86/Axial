@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Github, ExternalLink, ArrowLeft, Calendar, Users, Code } from "lucide-react";
 import { notFound } from "next/navigation";
+import { ProjectStructuredData } from "@/components/seo/StructuredData";
 
 interface ProjectDetailPageProps {
   params: {
@@ -24,13 +25,42 @@ export async function generateMetadata({ params }: ProjectDetailPageProps) {
   
   if (!project) {
     return {
-      title: 'Project Not Found',
+      title: 'Project Not Found | Syahrul Apriansyah',
+      description: 'The requested project could not be found.',
     };
   }
 
+  const projectImageUrl = project.image 
+    ? `https://www.syahrulapriansyah.com${project.image}`
+    : 'https://www.syahrulapriansyah.com/logo-black.png';
+
   return {
-    title: `${project.title} - Project Details`,
+    title: `${project.title} | Syahrul Apriansyah - Project Details`,
     description: project.description,
+    keywords: `${project.title}, ${project.technologies.join(', ')}, project, portfolio, Syahrul Apriansyah`,
+    alternates: {
+      canonical: `https://www.syahrulapriansyah.com/projects/${project.id}`,
+    },
+    openGraph: {
+      title: `${project.title} | Syahrul Apriansyah`,
+      description: project.description,
+      url: `https://www.syahrulapriansyah.com/projects/${project.id}`,
+      type: 'article',
+      images: [
+        {
+          url: projectImageUrl,
+          width: 1200,
+          height: 630,
+          alt: `${project.title} - Project by Syahrul Apriansyah`,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | Syahrul Apriansyah`,
+      description: project.description,
+      images: [projectImageUrl],
+    },
   };
 }
 
@@ -44,6 +74,17 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
 
   return (
     <div className="min-h-screen bg-white dark:bg-black">
+      <ProjectStructuredData
+        name={project.title}
+        description={project.description}
+        url={`https://www.syahrulapriansyah.com/projects/${project.id}`}
+        author="Syahrul Apriansyah"
+        programmingLanguages={project.technologies}
+        dateCreated="2024-01-01"
+        dateModified="2024-12-01"
+        image={project.image ? `https://www.syahrulapriansyah.com${project.image}` : undefined}
+        repositoryUrl={project.github}
+      />
       {/* Header */}
       <div className="bg-neutral-100/70 dark:bg-neutral-900/70 py-8">
         <div className="container mx-auto px-4 md:px-6">

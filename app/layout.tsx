@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from 'next/font/google';
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { PersonStructuredData, WebsiteStructuredData } from "@/components/seo/StructuredData";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,6 +13,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Syahrul Apriansyah" }],
   generator: 'Next.js',
   metadataBase: new URL('https://www.syahrulapriansyah.com'),
+  alternates: {
+    canonical: 'https://www.syahrulapriansyah.com',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -62,6 +66,23 @@ export default function RootLayout({
           disableTransitionOnChange={false}
           storageKey="portfolio-theme"
         >
+          <PersonStructuredData
+            name="Syahrul Apriansyah"
+            jobTitle="AI Engineer & Software Engineer"
+            description="AI Engineer and Software Engineer specializing in machine learning, backend development, and cloud infrastructure."
+            url="https://www.syahrulapriansyah.com"
+            imageUrl="https://www.syahrulapriansyah.com/logo-black.png"
+            sameAs={[
+              "https://github.com/SyahrulApr86",
+              "https://www.linkedin.com/in/syahrul-apriansyah-257bab207/"
+            ]}
+          />
+          <WebsiteStructuredData
+            name="Syahrul Apriansyah Portfolio"
+            url="https://www.syahrulapriansyah.com"
+            description="Personal portfolio showcasing AI engineering and software development projects"
+            author="Syahrul Apriansyah"
+          />
           {children}
         </ThemeProvider>
       </body>
