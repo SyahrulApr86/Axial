@@ -9,17 +9,11 @@ module.exports = {
     './data/**/*.{ts,tsx}',
   ],
   safelist: [
-    // Custom animation classes
+    // Only include animation classes that are actually used
     'animate-scroll',
     'scrollbar-hide',
-    'grainy-bg',
-    'blob',
-    'blob-1',
-    'blob-2', 
-    'blob-3',
-    'blob-4',
-    'blob-5',
-    'grain-texture',
+    // Line clamp utilities for project descriptions
+    'line-clamp-3',
   ],
   theme: {
     extend: {

@@ -38,7 +38,9 @@ export default function HeroSection() {
                 alt={personalInfo.name}
                 fill
                 priority
+                fetchPriority="high"
                 className="object-contain object-bottom grayscale"
+                sizes="(max-width: 768px) 320px, 420px"
               />
             </div>
           </div>

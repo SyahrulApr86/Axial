@@ -45,9 +45,11 @@ function ProjectGridCard({ project }: ProjectGridCardProps) {
           {project.image && (
             <Image
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} - Project preview`}
               fill
               className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-300"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              loading="lazy"
             />
           )}
         </div>

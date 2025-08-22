@@ -112,9 +112,11 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 <div className="relative w-full h-80 md:h-96">
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`${project.title} - Detailed project screenshot`}
                     fill
                     className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 50vw"
+                    priority
                   />
                 </div>
               </Card>

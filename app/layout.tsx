@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from 'next/font/google';
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { PersonStructuredData, WebsiteStructuredData } from "@/components/seo/StructuredData";
-
-const inter = Inter({ subsets: ["latin"] });
+import { inter } from "@/components/performance/OptimizedFont";
 
 export const metadata: Metadata = {
   title: "Syahrul Apriansyah | AI Engineer & Software Engineer",
@@ -58,6 +56,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Preload critical resources */}
+        <link rel="preload" href="/profile-photo.png" as="image" type="image/png" />
+        <link rel="preload" href="/logo-black.png" as="image" type="image/png" />
+        
+        {/* Preconnect to external domains if any */}
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        
+        {/* Resource hints for better performance */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+      </head>
       <body className={inter.className} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
