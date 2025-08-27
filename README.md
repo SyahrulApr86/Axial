@@ -5,12 +5,7 @@ My Portfolio Website
 ## 📋 TODO
 
 - [ ] **Add CV/Resume**: Implement downloadable CV functionality
-- [ ] **Update Projects**: Add real project data and images
-- [ ] make project carousel cyclic
-- [ ] Add url to project cards (optional)
-- [ ] Implement all projects page and fill with real data
 - [ ] Add blog section
-- [ ] Optimize performance and SEO
 - [ ] Add analytics tracking
 
 ## 1. Environment Setup
