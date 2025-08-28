@@ -10,6 +10,15 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    id: "research-intern-csl",
+    title: "Research Intern",
+    company: "Computer Systems Lab (CSL), Faculty of Computer Science, Universitas Indonesia",
+    period: "Aug 2024 - Jun 2025",
+    location: "Depok, West Java, Indonesia",
+    description: "Conducted deep-learning research on P/S-wave detection with Indonesian seismic data, fine-tuning and benchmarking models, implementing a robust waveform preprocessing pipeline, then delivering a research proposal, a draft journal article, and a working prototype.",
+    skills: ["Deep Learning", "Signal Processing", "Tensorflow", "Data Preprocessing"]
+  },
+  {
     id: "teaching-assistant-ui",
     title: "Teaching Assistant",
     company: "Faculty of Computer Science, Universitas Indonesia",
