@@ -150,20 +150,20 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-neutral-50 dark:bg-neutral-900">
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-black">
         {/* Theme toggle for login page */}
         <div className="absolute top-4 right-4">
           <ThemeToggle />
         </div>
         
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle className="text-center">Admin Login</CardTitle>
+        <Card className="w-full max-w-md bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700">
+          <CardHeader className="bg-white dark:bg-neutral-900">
+            <CardTitle className="text-center text-black dark:text-white">Admin Login</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="bg-white dark:bg-neutral-900">
             <form onSubmit={handleLogin} className="space-y-4">
               {error && (
-                <div className="p-3 text-sm text-red-600 bg-red-50 dark:bg-red-900/20 rounded">
+                <div className="p-3 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 dark:border dark:border-red-800 rounded">
                   {error}
                 </div>
               )}
@@ -173,6 +173,7 @@ export default function AdminPage() {
                 value={loginForm.email}
                 onChange={(e) => setLoginForm({ ...loginForm, email: e.target.value })}
                 required
+                className="bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-600 text-black dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400"
               />
               <Input
                 type="password"
@@ -180,8 +181,9 @@ export default function AdminPage() {
                 value={loginForm.password}
                 onChange={(e) => setLoginForm({ ...loginForm, password: e.target.value })}
                 required
+                className="bg-white dark:bg-neutral-800 border-neutral-300 dark:border-neutral-600 text-black dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400"
               />
-              <Button type="submit" className="w-full">
+              <Button type="submit" className="w-full bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
                 Login
               </Button>
             </form>
@@ -192,14 +194,14 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-neutral-50 dark:bg-neutral-900">
+    <div className="min-h-screen bg-white dark:bg-black">
       {/* Header */}
-      <div className="bg-white dark:bg-neutral-800 border-b border-neutral-200 dark:border-neutral-700">
+      <div className="bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-700">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Admin Dashboard</h1>
+          <h1 className="text-2xl font-bold text-black dark:text-white">Admin Dashboard</h1>
           <div className="flex items-center gap-3">
             <ThemeToggle />
-            <Button onClick={handleLogout} variant="outline">
+            <Button onClick={handleLogout} variant="outline" className="border-neutral-300 dark:border-neutral-600 text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800">
               <LogOut className="h-4 w-4 mr-2" />
               Logout
             </Button>
@@ -211,29 +213,29 @@ export default function AdminPage() {
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Contacts List */}
           <div>
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
+            <Card className="bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700">
+              <CardHeader className="bg-white dark:bg-neutral-900">
+                <CardTitle className="flex items-center gap-2 text-black dark:text-white">
                   <Mail className="h-5 w-5" />
                   Messages ({contacts.length})
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="bg-white dark:bg-neutral-900">
                 <div className="space-y-4">
                   {contacts.map((contact) => (
                     <div
                       key={contact.id}
                       className={`p-4 border rounded-lg cursor-pointer transition-colors ${
                         selectedContact?.id === contact.id
-                          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
-                          : 'border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 dark:border-blue-400'
+                          : 'border-neutral-200 dark:border-neutral-600 hover:bg-neutral-50 dark:hover:bg-neutral-800 bg-white dark:bg-neutral-900'
                       }`}
                       onClick={() => setSelectedContact(contact)}
                     >
                       <div className="flex justify-between items-start mb-2">
                         <div className="flex items-center gap-2">
-                          <User className="h-4 w-4" />
-                          <span className="font-medium">{contact.name}</span>
+                          <User className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
+                          <span className="font-medium text-black dark:text-white">{contact.name}</span>
                           {!contact.isRead && (
                             <Badge variant="destructive" className="text-xs">
                               New
@@ -244,6 +246,7 @@ export default function AdminPage() {
                           <Button
                             size="sm"
                             variant="ghost"
+                            className="text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700"
                             onClick={(e) => {
                               e.stopPropagation()
                               markAsRead(contact.id, !contact.isRead)
@@ -254,6 +257,7 @@ export default function AdminPage() {
                           <Button
                             size="sm"
                             variant="ghost"
+                            className="text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700 hover:text-red-600 dark:hover:text-red-400"
                             onClick={(e) => {
                               e.stopPropagation()
                               deleteContact(contact.id)
@@ -263,20 +267,20 @@ export default function AdminPage() {
                           </Button>
                         </div>
                       </div>
-                      <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                      <p className="text-sm text-neutral-600 dark:text-neutral-300">
                         {contact.email}
                       </p>
-                      <p className="text-sm text-neutral-500 dark:text-neutral-500 mt-1 line-clamp-2">
+                      <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1 line-clamp-2">
                         {contact.message}
                       </p>
-                      <div className="flex items-center gap-2 mt-2 text-xs text-neutral-500">
+                      <div className="flex items-center gap-2 mt-2 text-xs text-neutral-500 dark:text-neutral-400">
                         <Calendar className="h-3 w-3" />
                         {new Date(contact.createdAt).toLocaleString()}
                       </div>
                     </div>
                   ))}
                   {contacts.length === 0 && (
-                    <p className="text-center text-neutral-500 py-8">
+                    <p className="text-center text-neutral-500 dark:text-neutral-400 py-8">
                       No messages yet
                     </p>
                   )}
@@ -288,11 +292,11 @@ export default function AdminPage() {
           {/* Message Detail */}
           <div>
             {selectedContact ? (
-              <Card>
-                <CardHeader>
+              <Card className="bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700">
+                <CardHeader className="bg-white dark:bg-neutral-900">
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle className="flex items-center gap-2">
+                      <CardTitle className="flex items-center gap-2 text-black dark:text-white">
                         <User className="h-5 w-5" />
                         {selectedContact.name}
                         {!selectedContact.isRead && (
@@ -309,6 +313,7 @@ export default function AdminPage() {
                       <Button
                         size="sm"
                         variant="outline"
+                        className="border-neutral-300 dark:border-neutral-600 text-black dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800"
                         onClick={() => markAsRead(selectedContact.id, !selectedContact.isRead)}
                       >
                         <Eye className="h-4 w-4 mr-2" />
@@ -317,6 +322,7 @@ export default function AdminPage() {
                       <Button
                         size="sm"
                         variant="destructive"
+                        className="bg-red-600 hover:bg-red-700 text-white"
                         onClick={() => deleteContact(selectedContact.id)}
                       >
                         <Trash2 className="h-4 w-4 mr-2" />
@@ -325,20 +331,20 @@ export default function AdminPage() {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="bg-white dark:bg-neutral-900">
                   <div className="mb-4">
-                    <div className="flex items-center gap-2 text-sm text-neutral-500">
+                    <div className="flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400">
                       <Calendar className="h-4 w-4" />
                       {new Date(selectedContact.createdAt).toLocaleString()}
                     </div>
                   </div>
-                  <div className="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg">
-                    <p className="whitespace-pre-wrap">{selectedContact.message}</p>
+                  <div className="bg-neutral-50 dark:bg-neutral-800 p-4 rounded-lg border border-neutral-200 dark:border-neutral-700">
+                    <p className="whitespace-pre-wrap text-black dark:text-white">{selectedContact.message}</p>
                   </div>
                   <div className="mt-4">
                     <Button
                       onClick={() => window.open(`mailto:${selectedContact.email}?subject=Re: Portfolio Contact`)}
-                      className="w-full"
+                      className="w-full bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                     >
                       <Mail className="h-4 w-4 mr-2" />
                       Reply via Email
@@ -347,9 +353,9 @@ export default function AdminPage() {
                 </CardContent>
               </Card>
             ) : (
-              <Card>
-                <CardContent className="flex items-center justify-center h-64">
-                  <p className="text-neutral-500">Select a message to view details</p>
+              <Card className="bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700">
+                <CardContent className="flex items-center justify-center h-64 bg-white dark:bg-neutral-900">
+                  <p className="text-neutral-500 dark:text-neutral-400">Select a message to view details</p>
                 </CardContent>
               </Card>
             )}
