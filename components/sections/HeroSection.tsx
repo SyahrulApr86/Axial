@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download } from "lucide-react";
+import { Download, Github, Linkedin } from "lucide-react";
 import Image from "next/image";
 import { personalInfo } from "@/data/personal";
 
@@ -23,7 +23,30 @@ export default function HeroSection() {
             <p className="max-w-[600px] text-neutral-600 dark:text-neutral-400 md:text-xl mx-auto lg:mx-0">
               {personalInfo.description}
             </p>
-            <div className="w-full max-w-sm space-y-2 mx-auto lg:mx-0">
+            <div className="w-full max-w-sm space-y-4 mx-auto lg:mx-0">
+              {/* Social Links */}
+              <div className="flex gap-4 justify-center lg:justify-start">
+                <a
+                  href={personalInfo.socialLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                >
+                  <Linkedin size={18} />
+                  <span className="text-sm font-medium">LinkedIn</span>
+                </a>
+                <a
+                  href={personalInfo.socialLinks.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+                >
+                  <Github size={18} />
+                  <span className="text-sm font-medium">GitHub</span>
+                </a>
+              </div>
+              
+              {/* Download CV Button */}
               <Button size="lg" className="w-full sm:w-auto bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200">
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
